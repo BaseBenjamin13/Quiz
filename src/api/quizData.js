@@ -8,7 +8,7 @@ const quizData = {
                 "String",
                 "None of the above",
             ],
-            correctAnswer: "Hello World",
+            correctAnswerIndex: 1,
         },
         {
             question: "what will <code>console.log(15)</code> log to the console?",
@@ -18,7 +18,7 @@ const quizData = {
                 "15",
                 "None of the above",
             ],
-            correctAnswer: "15",
+            correctAnswerIndex: 2,
         },
         {
             question: "what will <code>console.log(15 + 5)</code> log to the console?",
@@ -28,7 +28,7 @@ const quizData = {
                 "20",
                 "'20'",
             ],
-            correctAnswer: "20",
+            correctAnswerIndex: 2,
         },
         {
             question: "what will <code>console.log('15 + 20')</code> log to the console?",
@@ -38,7 +38,7 @@ const quizData = {
                 "'35'",
                 "15 + 20",
             ],
-            correctAnswer: "15 + 20",
+            correctAnswerIndex: 3,
         },
     ]
 }

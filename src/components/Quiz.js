@@ -19,6 +19,14 @@ function Quiz() {
         }
     }
 
+    const handleAnswer = (index) => {
+        if(quizData.questions[displayQuestion].correctAnswerIndex == index){
+            console.log('%cCorrect', `background-color: green`)
+        } else {
+            console.log('%cWrong', `background-color: red`)
+        }
+    }
+
   return (
     <div className='quiz-container'>
         <h2>JavaScript Quiz</h2>
@@ -26,11 +34,15 @@ function Quiz() {
         <div className='quiz-options'>
             <h2 className='question' dangerouslySetInnerHTML={{ __html: quizData.questions[displayQuestion].question }}></h2>
             {
-                quizData.questions[displayQuestion].answers.map((answer) => {
+                quizData.questions[displayQuestion].answers.map((answer, index) => {
                     return (
-                        <div className='quiz-option-container'>
+                        <button 
+                            key={index} 
+                            className='quiz-option-container' 
+                            onClick={() => handleAnswer(index)}
+                        >
                             <h3>{answer}</h3>
-                        </div>
+                        </button>
                     )
                 })
             }

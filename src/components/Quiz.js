@@ -5,24 +5,32 @@ import quizData from '../api/quizData';
 
 function Quiz() {
 
-    const [usersAnswer, setUsersAnswer] = useState('');
     const [displayQuestion, setDisplayQuestion] = useState(0);
+    const [displayAnswer, setDisplayAnswer] = useState(false);
+    const [answerCorrect, setAnswerCorrect] = useState(false);
 
     const handleNextBtn = () => {
         if(displayQuestion < quizData.questions.length -1){
             setDisplayQuestion(displayQuestion + 1)
+            setDisplayAnswer(false);
+            setAnswerCorrect(false);
         }
     }
     const handleBackBtn = () => {
         if(displayQuestion >= 1){
             setDisplayQuestion(displayQuestion - 1)
+            setAnswerCorrect(false);
+            setDisplayAnswer(false);
         }
     }
 
     const handleAnswer = (index) => {
         if(quizData.questions[displayQuestion].correctAnswerIndex == index){
-            console.log('%cCorrect', `background-color: green`)
+            console.log('%cCorrect', `background-color: green`);
+            setDisplayAnswer(!displayAnswer);
+            setAnswerCorrect(true);
         } else {
+            setDisplayAnswer(!displayAnswer);
             console.log('%cWrong', `background-color: red`)
         }
     }
@@ -41,12 +49,28 @@ function Quiz() {
                             className='quiz-option-container' 
                             onClick={() => handleAnswer(index)}
                         >
-                            <h3>{answer}</h3>
+                            <h3 
+                                style={displayAnswer && quizData.questions[displayQuestion].correctAnswerIndex == index
+                                    ? {color: '#4cceac'} 
+                                    : displayAnswer && quizData.questions[displayQuestion].correctAnswerIndex !== index 
+                                    ? {color: '#db4f4a'}
+                                    : null
+                                }
+                            >
+                                {answer}
+                            </h3>
                         </button>
                     )
                 })
             }
         </div>
+
+        {displayAnswer && answerCorrect 
+        ? <h1 style={{color: '#4cceac'}}>Correct!</h1>
+        : displayAnswer && !answerCorrect &&
+        <h1 style={{color: '#db4f4a'}}>Wrong</h1>
+
+        }
 
         <div className='quiz-nav'>
             <button onClick={handleBackBtn}>Prev</button>

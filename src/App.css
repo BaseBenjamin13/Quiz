@@ -20,6 +20,25 @@
   margin: auto;
   width: 50vw;
   background: var(--gradient);
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+  border-radius: 0.5rem;
+}
+
+.quiz-options {
+  margin: 0 auto;
+  max-width: 90%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+.quiz-option-container {
+  width: 40%;
+  /* height: 10vh; */
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+  border-radius: 0.5rem;
+  margin: 3%;
+  background-color: var(--myDarkBlue);
+  color: white;
 }
 
 .quiz-nav {

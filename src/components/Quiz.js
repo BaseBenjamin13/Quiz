@@ -27,8 +27,8 @@ function Quiz() {
             {
                 quizData.questions[displayQuestion].answers.map((answer) => {
                     return (
-                        <div>
-                            <h2>{answer}</h2>
+                        <div className='quiz-option-container'>
+                            <h4>{answer}</h4>
                         </div>
                     )
                 })

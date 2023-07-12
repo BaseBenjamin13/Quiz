@@ -8,6 +8,12 @@ function Quiz() {
     const [usersAnswer, setUsersAnswer] = useState('');
     const [displayQuestion, setDisplayQuestion] = useState(0);
 
+    const handleNextBtn = () => {
+        if(displayQuestion < quizData.questions.length -1){
+            setDisplayQuestion(displayQuestion + 1)
+        }
+    }
+
   return (
     <div className='quiz-container'>
         <h2>JavaScript Quiz</h2>
@@ -26,7 +32,7 @@ function Quiz() {
 
         <div className='quiz-nav'>
             <button>Prev</button>
-            <button>Next</button>
+            <button onClick={handleNextBtn}>Next</button>
         </div>
     </div>
   )

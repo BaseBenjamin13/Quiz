@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import '../App.css';
+
 import quizData from '../api/quizData';
 
 function Quiz() {
@@ -7,7 +9,7 @@ function Quiz() {
     const [displayQuestion, setDisplayQuestion] = useState(0);
 
   return (
-    <div>
+    <div className='quiz-container'>
         <h2>JavaScript Quiz</h2>
         
         <div className='quiz-nav'>

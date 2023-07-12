@@ -1,4 +1,4 @@
-export const quizData = {
+const quizData = {
     questions: [
         {
             question: "what will console.log('Hello World') log to the console?",
@@ -42,3 +42,5 @@ export const quizData = {
         },
     ]
 }
+
+export default quizData;

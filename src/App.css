@@ -18,6 +18,14 @@
 
 .quiz-container {
   margin: auto;
-  width: 75vw;
+  width: 50vw;
   background: var(--gradient);
+}
+
+.quiz-nav {
+  display: flex;
+  justify-content: space-around;
+}
+.quiz-nav button{ 
+  margin: 5px;
 }

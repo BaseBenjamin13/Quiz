@@ -24,11 +24,12 @@ function Quiz() {
         <h2>JavaScript Quiz</h2>
         
         <div className='quiz-options'>
+            <h2 className='question' dangerouslySetInnerHTML={{ __html: quizData.questions[displayQuestion].question }}></h2>
             {
                 quizData.questions[displayQuestion].answers.map((answer) => {
                     return (
                         <div className='quiz-option-container'>
-                            <h4>{answer}</h4>
+                            <h3>{answer}</h3>
                         </div>
                     )
                 })

@@ -13,6 +13,11 @@ function Quiz() {
             setDisplayQuestion(displayQuestion + 1)
         }
     }
+    const handleBackBtn = () => {
+        if(displayQuestion >= 1){
+            setDisplayQuestion(displayQuestion - 1)
+        }
+    }
 
   return (
     <div className='quiz-container'>
@@ -31,7 +36,7 @@ function Quiz() {
         </div>
 
         <div className='quiz-nav'>
-            <button>Prev</button>
+            <button onClick={handleBackBtn}>Prev</button>
             <button onClick={handleNextBtn}>Next</button>
         </div>
     </div>

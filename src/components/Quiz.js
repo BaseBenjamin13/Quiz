@@ -11,6 +11,8 @@ function Quiz() {
     const [amountCorrect, setAmountCorrect] = useState(0);
     const [showResults, setShowResults] = useState(false);
     const [result, setResult] = useState(0);
+    const [clickable, setClickable] = useState(true);
+
 
     const reset = () => {
         setDisplayQuestion(0);
@@ -19,7 +21,7 @@ function Quiz() {
         setAmountCorrect(0)
         setShowResults(false);
         setResult(0);
-        
+        setClickable(true);
     }
 
     const handleNextBtn = () => {
@@ -27,7 +29,7 @@ function Quiz() {
             setDisplayQuestion(displayQuestion + 1)
             setDisplayAnswer(false);
             setAnswerCorrect(false);
-            
+            setClickable(true);
         } else {
             setShowResults(true);
             setResult((amountCorrect / quizData.questions.length) * 100)
@@ -47,10 +49,10 @@ function Quiz() {
             setDisplayAnswer(!displayAnswer);
             setAnswerCorrect(true);
             setAmountCorrect(amountCorrect + 1);
-            
+            setClickable(false);
         } else {
             setDisplayAnswer(!displayAnswer);
-            
+            setClickable(false);
             console.log('%cWrong', `background-color: red`)
         }
     }
@@ -71,7 +73,7 @@ function Quiz() {
                                         <button
                                             key={index}
                                             className='quiz-option-container'
-                                            
+                                            disabled={!clickable}
                                             onClick={() => handleAnswer(index)}
                                         >
                                             <h3

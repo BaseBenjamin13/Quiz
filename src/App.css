@@ -19,6 +19,7 @@
 .quiz-container {
   margin: auto;
   margin-top: 5%;
+  padding: 15px;
   width: 65vw;
   background: var(--gradient);
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);

@@ -38,6 +38,8 @@ function Quiz() {
   return (
     <div className='quiz-container'>
         <h2>JavaScript Quiz</h2>
+
+        <h2>Question (<span style={{color: '#4cceac'}}>{displayQuestion + 1}</span>/{quizData.questions.length})</h2>
         
         <div className='quiz-options'>
             <h2 className='question' dangerouslySetInnerHTML={{ __html: quizData.questions[displayQuestion].question }}></h2>

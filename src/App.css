@@ -56,10 +56,24 @@
   display: flex;
   justify-content: space-around;
 }
-.quiz-nav button{ 
+
+.quiz-nav button, .results-container button{ 
   font-family: var(--font-mono);
   box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
   border-radius: 0.5rem;
   margin: 5px;
   font-size: large;
+}
+
+.result-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  margin-bottom: 15px;
+  background-color: var(--myDarkBlue);
+  border-radius: 50%;
+  font-size: x-large;
 }

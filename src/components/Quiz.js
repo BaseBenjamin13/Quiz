@@ -10,15 +10,27 @@ function Quiz() {
     const [answerCorrect, setAnswerCorrect] = useState(false);
     const [amountCorrect, setAmountCorrect] = useState(0);
     const [showResults, setShowResults] = useState(false);
+    const [result, setResult] = useState(0);
 
+    const reset = () => {
+        setDisplayQuestion(0);
+        setDisplayAnswer(false);
+        setAnswerCorrect(false);
+        setAmountCorrect(0)
+        setShowResults(false);
+        setResult(0);
+        
+    }
 
     const handleNextBtn = () => {
         if (displayQuestion < quizData.questions.length - 1) {
             setDisplayQuestion(displayQuestion + 1)
             setDisplayAnswer(false);
             setAnswerCorrect(false);
+            
         } else {
             setShowResults(true);
+            setResult((amountCorrect / quizData.questions.length) * 100)
         }
     }
     const handleBackBtn = () => {
@@ -35,8 +47,10 @@ function Quiz() {
             setDisplayAnswer(!displayAnswer);
             setAnswerCorrect(true);
             setAmountCorrect(amountCorrect + 1);
+            
         } else {
             setDisplayAnswer(!displayAnswer);
+            
             console.log('%cWrong', `background-color: red`)
         }
     }
@@ -57,6 +71,7 @@ function Quiz() {
                                         <button
                                             key={index}
                                             className='quiz-option-container'
+                                            
                                             onClick={() => handleAnswer(index)}
                                         >
                                             <h3
@@ -89,15 +104,21 @@ function Quiz() {
                     </>
                     
                     : 
-                    <div>
+                    <div className='results-container'>
                         <h1>Results</h1>
-                        <h1>
-                            {(amountCorrect / quizData.questions.length) * 100}%
-                        </h1>
-                        <button onClick={() => {
-                            setDisplayQuestion(0)
-                            setShowResults(false)    
-                        }}
+                        <div 
+                            className='result-container' 
+                            style={
+                                result > 50 
+                                ? {border: '3px solid #4cceac', boxShadow: '0 0 1rem #4cceac'}
+                                : {border: '3px solid #db4f4a', boxShadow: '0 0 1rem #db4f4a'}
+                            }
+                        >
+                            <h1 style={result > 50 ? {color: '#4cceac'}: {color: '#db4f4a'}}>
+                                {result}%
+                            </h1>
+                        </div>
+                        <button onClick={reset}
                         >
                             Try Again
                         </button>
